@@ -1,0 +1,5 @@
+{
+    "require": {
+        "alibabacloud/iot": "^1.8"
+    }
+}

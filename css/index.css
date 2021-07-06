@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* padding or margin 不会撑开box */
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+html,
+body {
+    min-width: 1200px;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    font-family: "Microsoft Yahei", Arial, sans-serif;
+    background: #050d3c url("../images/bg.png") 0 0 / 100% 100% no-repeat;
+}
+
+.header {
+    background: url("../images/header.png") no-repeat;
+    height: 110px;
+    color: #07a9ec;
+    font-size: 38px;
+    text-align: center;
+    line-height: 110px;
+    background-position: center center;
+}
+
+.logo {
+    position: absolute;
+    left: 20px;
+    top: 0px;
+    width: 110px;
+    height: 35px;
+}
+
+.leftBox {
+    position: absolute;
+    width: 420px;
+    height: 110px;
+    color: #65c6e7;
+    top: 94px;
+    font-size: 18px;
+}
+
+.rightBox {
+    position: absolute;
+    width: 420px;
+    height: 110px;
+    color: #65c6e7;
+    top: 94px;
+    font-size: 14px;
+}
+
+#weather .info {
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #52ffff;
+}
+
+.leftBox {
+    left: 45px;
+    background-image: url('../images/leftbox.png');
+}
+
+.rightBox {
+    right: 45px;
+    background: url('../images/rightbox.png');
+    text-align: right;
+}
+
+.banner {
+    width: 935px;
+    height: 72px;
+    background: url('../images/banner.png') no-repeat;
+    background-position: center center;
+    top: 130px;
+    margin: 0 auto;
+    color: #52ffff;
+    font-size: 25px;
+    text-align: center;
+    line-height: 72px;
+}
+
+.mapContain {
+    position: absolute;
+    top: 205px;
+    left: 24px;
+    right: 24px;
+    /* height: 52%; */
+    height: 48%;
+    /* background: url(../images/map.png) no-repeat; */
+}
+
+#mapContain {
+    /* position: absolute; */
+    /* left: 22px; */
+    top: 21px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.charts {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 70%;
+}
+
+.charts>li {
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+
+/* .charts .chart {
+    width: 460px;
+    height: 315px;
+} */
+
+.title {
+    height: 48px;
+    width: 88%;
+    border: 1px solid #2e4377;
+    /* top: -65px;
+    left: 30px; */
+    margin-left: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 48px;
+    font-size: 18px;
+    color: #65c6e7;
+}
+
+#batteryChart {
+    left: -2%;
+    width: 100%;
+    height: 80%;
+}
+
+#aqiChart {
+    left: -2%;
+    width: 100%;
+    height: 80%;
+}
+
+#pollutionChart {
+    left: 0;
+    width: 100%;
+    height: 80%;
+}
+
+#dataChart {
+    left: 20px;
+    width: 100%;
+    height: 90%;
+}
+
+#selectBigForm {
+    position: absolute;
+    right: 14%;
+    top: 14px;
+    border: 0px;
+    outline: none;
+    background-color: transparent;
+}
+
+#selectBigForm #selectForm {
+    background-color: transparent;
+    color: #666;
+    border: 0px;
+}
+
+#selectBigForm2 #selectForm2 {
+    background-color: transparent;
+    color: #666;
+    border: 0px;
+}
+
+#selectBigForm2 {
+    position: absolute;
+    right: 39%;
+    top: 14px;
+    border: 0px;
+    outline: none;
+    background-color: transparent;
+}
+
+.marker1,
+.marker2,
+.marker3,
+.marker4,
+.marker5 {
+    position: absolute;
+    width: 26px;
+    height: 30px;
+    z-index: 2;
+}
+
+.marker1 {
+    background: url(../images/marker.png) no-repeat 0px -78px;
+}
+
+.marker2 {
+    background: url(../images/marker.png) no-repeat -29px -78px;
+}
+
+.marker3 {
+    background: url(../images/marker.png) no-repeat -56px -78px;
+}
+
+.marker4 {
+    background: url(../images/marker.png) no-repeat -83px -78px;
+}
+
+.marker5 {
+    background: url(../images/marker.png) no-repeat -110px -78px;
+}
+
+#layerBox {
+    position: absolute;
+    width: 4px;
+    height: 30px;
+    right: 15px;
+    top: 50%;
+    margin-top: -80px;
+    color: #fff;
+}
+
+/* .charts #batteryChart div canvas {
+    position: absolute;
+    left: 36px;
+    top: 0px;
+    width: 428px;
+    height: 280px;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    padding: 0px;
+    margin: 0px;
+    border-width: 0px;
+} */
+
+/* #dataBox {
+    width: 515px;
+    height: 315px;
+    //background-color: #fff;
+    position: absolute;
+    top: 740px;
+    right: 24px;
+    border-style: solid;
+    border-width: 8px 16px 8px 8px;
+    border-image: url("../images/chart-wrapper.png") 16 17 17 10 fill / 1 / 0 repeat;
+
+} */
+
+/* #dataBox table thead th {
+    border-bottom-width: 0;
+} */
+
+
+/* #dataBox table tr,
+#dataBox table th {
+    width: 98px;
+    height: 50px;
+    font-size: 14px;
+    color: #65c6e7;
+} */
+
+/* #dataBox table td,
+#dataBox table th {
+    padding: 5px 10px;
+    font-family: Verdana;
+    font-weight: bold;
+    //line-height: 50px;
+} */
+
+#timeBox {
+    /* position: absolute;
+    top: 25px;
+    right: 90px; */
+    color: #52ffff;
+    font-size: 16px;
+}

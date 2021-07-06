@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <!-- 适配移动端 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <!-- 引入 ECharts 文件 -->
+    <script src="javascript/echarts.min.js"></script>
+    <script src="javascript/china.js"></script>
+    <!-- paho mqtt -->
+    <script src="javascript/mqttws31.min.js"></script>
+    <script src="javascript/paho-mqtt-min.js"></script>
+    <!-- jQuery -->
+    <script src="javascript/jquery-3.4.1.min.js"></script>
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=6909f98337130d3700648b988d775d0d&plugin=AMap.Geocoder">
+    </script>
+    <!-- amap js -->
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=6909f98337130d3700648b988d775d0d"></script>
+    <title>智能空气质量检测管理平台</title>
+</head>
+
+<body>
+    <div class='header'>智能空气质量检测管理平台</div>
+    <div class='logo'><img src="images/logo1.png" width="220" height="70"></div>
+    <div class='leftBox'>
+        <div id="timeBox"></div>
+    </div>
+    <div class='banner' id="placeName"></div>
+    <div class='rightBox' id="weather">天气</div>
+    <div class='mapContain'>
+        <div id="mapContain"></div>
+    </div>
+    <div id="layerBox">
+        极夜蓝<input type="radio" checked="checked" name="layer" value="darkblue" />
+        靛青蓝<input type="radio" name="layer" value="blue" />
+    </div>
+    <ul class="charts">
+        <li>
+            <h3 class="title">淄博各监测点AQI</h3>
+            <div class="chart" id="aqiChart"></div>
+        </li>
+        <li>
+            <h3 class="title">电量</h3>
+            <div class="chart" id="batteryChart"></div>
+        </li>
+        <li>
+            <h3 class="title">污染状况</h3>
+            <form action="" id="selectBigForm2">
+                <select name="" id="selectForm2" onchange="changeChart2()">
+                    <option value="PM2.5" selected="selected">PM2.5</option>
+                    <option value="PM10">PM10</option>
+                </select>
+            </form>
+            <div class="chart" id="pollutionChart"></div>
+        </li>
+        <li>
+            <div>
+                <h3 class="title">折线图</h3>
+                <form action="" id="selectBigForm">
+                    <select name="" id="selectForm" onchange="changeChart()">
+                        <option value="温度" selected="selected">温度</option>
+                        <option value="湿度">湿度</option>
+                        <option value="PM2.5">PM2.5</option>
+                        <option value="PM10">PM10</option>
+                    </select>
+                </form>
+            </div>
+            <div class="chart" id="dataChart"></div>
+        </li>
+    </ul>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="javascript/index.js"></script>
+    <script>
+        function realtime() {
+            var time = new Date();
+            var timeStr = time.toLocaleTimeString();
+            var dateStr = time.toLocaleDateString();
+            document.getElementById("timeBox").innerHTML = dateStr + "&nbsp" + timeStr;
+        }
+        setInterval(function () {
+            realtime()
+        }, 1000);
+
+        function changeChart() {
+            if (document.getElementById('selectForm').value == "温度") {
+                dataChart.setOption(temperatureDataOption);
+                console.log(1);
+            }
+            if (document.getElementById('selectForm').value == "湿度") {
+                dataChart.setOption(humidityDataOption);
+                console.log(2);
+            }
+            if (document.getElementById('selectForm').value == "PM2.5") {
+                dataChart.setOption(PM25DataOption);
+                console.log(3);
+            }
+            if (document.getElementById('selectForm').value == "PM10") {
+                dataChart.setOption(PM10DataOption);
+                console.log(4);
+            }
+        }
+
+        function changeChart2() {
+            if (document.getElementById('selectForm2').value == "PM2.5") {
+                pollutionChart.setOption(pollutionPM25Option);
+            }
+            if (document.getElementById('selectForm2').value == "PM10") {
+                pollutionChart.setOption(pollutionPM10Option);
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- 地点,天气,折线图: 可选地点和数据类型, 饼图: 根据数值  横柱状图: 根据电量(电压) 普通柱状图:先不弄
+左上角 时间日期 -->
